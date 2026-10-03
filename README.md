@@ -236,6 +236,8 @@ At a high level, the project can be reproduced by:
 
 Credentials, secrets, and environment-specific authentication values are intentionally not included in this repository.
 
+> **Cost cleanup:** After completing and documenting the project, the Azure resource group can be deleted to remove the project resources and avoid ongoing charges.
+
 <br>
 
 ## Limitations
