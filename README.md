@@ -75,7 +75,7 @@ The project uses the **NYC Open Data 311 Service Requests API** (`erm2-nwe9`) th
 
 The ingestion was scoped to:
 
-- the most recent 30 days of data
+- a 30-day snapshot of NYC 311 requests from August 30 through September 29, 2026
 - a maximum of 100,000 records
 - selected fields relevant to complaint, location, status, and resolution analysis
 
@@ -244,7 +244,7 @@ This project was intentionally scoped as a focused V1 data engineering portfolio
 
 Current limitations include:
 
-- the source data is limited to the most recent 30 days
+- the source data is limited to a 30-day snapshot from August 30 through September 29, 2026
 - ingestion is capped at 100,000 records
 - the pipeline uses one NYC 311 dataset
 - the project is batch-based rather than streaming
