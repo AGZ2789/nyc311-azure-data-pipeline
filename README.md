@@ -71,7 +71,7 @@ Minimum 50 valid resolved requests per complaint type.
 
 ## Data Source and Ingestion
 
-The project uses the **NYC Open Data 311 Service Requests API** (`erm2-nwe9`) through the SODA2 API.
+The project uses the [NYC Open Data 311 Service Requests dataset](https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2020-to-Present/erm2-nwe9) (`erm2-nwe9`) through the SODA2 API.
 
 The ingestion was scoped to:
 
