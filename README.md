@@ -20,7 +20,7 @@ The implemented data flow is:
 
 Bronze, Silver, and Gold are logical data layers stored in the same Azure Data Lake Storage Gen2 account, while Azure Databricks provides the compute and processing layer.
 
-<br />
+<br>
 
 ## Key Findings
 
@@ -56,7 +56,7 @@ Minimum 50 valid resolved requests per complaint type.
 9. SAFETY — 75.76 hours
 10. PAINT/PLASTER — 74.66 hours
 
-
+<br>
 
 ## Technologies Used
 
@@ -66,6 +66,8 @@ Minimum 50 valid resolved requests per complaint type.
 - **PySpark** — cleaned, transformed, and aggregated the data
 - **Delta Lake** — stored the Silver and Gold datasets
 - **NYC Open Data API** — provided the source 311 Service Requests data
+
+<br>
 
 ## Data Source and Ingestion
 
@@ -79,6 +81,8 @@ The ingestion was scoped to:
 
 Azure Data Factory ingested the API data into the Bronze layer in ADLS Gen2.
 
+<br>
+
 **Ingestion result:**
 
 - 100,000 objects read
@@ -88,6 +92,8 @@ Azure Data Factory ingested the API data into the Bronze layer in ADLS Gen2.
 Bronze path:
 
 `bronze/nyc311/nyc311_raw.json`
+
+<br>
 
 ## Bronze Validation and Silver Processing
 
@@ -119,6 +125,8 @@ Silver path:
 
 `silver/nyc311/`
 
+---
+
 ### Resolution-Time Data Quality
 
 The Silver layer preserved all 100,000 records while assigning quality flags to resolution-time values.
@@ -139,6 +147,8 @@ Cleaning rules:
 
 No invalid rows were deleted; they were retained and quality-flagged.
 
+<br>
+
 ## Gold Processing
 
 The Silver dataset was transformed into three persisted Gold Delta datasets for analysis:
@@ -156,6 +166,8 @@ For resolution-time analysis:
 
 The 50-request threshold applies only to `resolution_by_complaint`, not to the complaint-count or borough-count datasets.
 
+<br>
+
 ## Notebooks
 
 The project is organized into three Databricks notebooks:
@@ -163,6 +175,8 @@ The project is organized into three Databricks notebooks:
 - [`01_bronze_to_silver.ipynb`](notebooks/01_bronze_to_silver.ipynb) — validates Bronze data, cleans and transforms the dataset, and writes the Silver Delta table
 - [`02_silver_to_gold.ipynb`](notebooks/02_silver_to_gold.ipynb) — reads the Silver dataset and creates the persisted Gold aggregations
 - [`03_gold_analysis.ipynb`](notebooks/03_gold_analysis.ipynb) — reads the Gold datasets and presents the final complaint, borough, and resolution-time analysis
+
+<br>
 
 ## Project Screenshots
 
@@ -179,6 +193,8 @@ Selected screenshots are included to document the completed pipeline and its out
 - [Persisted Gold datasets](screenshots/09_gold_datasets.png)
 - [Median resolution-time analysis](screenshots/10_gold_median_resolution_analysis.png)
 - [Complaint and borough analysis](screenshots/11_gold_complaints_and_borough_analysis.png)
+
+<br>
 
 ## Repository Structure
 
@@ -205,6 +221,8 @@ nyc311-azure-data-pipeline/
 └── README.md
 ```
 
+<br>
+
 ## Reproducing the Pipeline
 
 At a high level, the project can be reproduced by:
@@ -217,6 +235,8 @@ At a high level, the project can be reproduced by:
 6. Running `03_gold_analysis.ipynb` to analyze the persisted Gold datasets.
 
 Credentials, secrets, and environment-specific authentication values are intentionally not included in this repository.
+
+<br>
 
 ## Limitations
 
